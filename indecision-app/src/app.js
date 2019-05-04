@@ -2,8 +2,8 @@ console.log('App.js is running')
 
 // JSX
 var createApp = {
-    title: 'Fuckoff',
-    subtitle: 'Fuck me off'
+    title: 'Indecision App',
+    subtitle: 'Something more'
 };
 var template = (<div>
     <h1>{createApp.title}</h1>
