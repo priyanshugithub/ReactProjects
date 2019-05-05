@@ -6,9 +6,18 @@ console.log('App.js is running');
 var createApp = {
     title: 'Indecision App',
     subtitle: '',
-    options: []
+    options: ['one', 'two']
 };
 
+var onFormSubmit = function onFormSubmit(e) {
+    e.preventDefault();
+    var option = e.target.elements.option.value;
+
+    if (option) {
+        createApp.options.push(option);
+        e.target.elements.option.value = '';
+    }
+};
 function prender(options) {
     if (options.length > 0) {
         return "Here are your options";
@@ -49,6 +58,16 @@ var template = React.createElement(
             'li',
             null,
             'Item Three'
+        )
+    ),
+    React.createElement(
+        'form',
+        { onSubmit: onFormSubmit },
+        React.createElement('input', { type: 'text', name: 'option' }),
+        React.createElement(
+            'button',
+            null,
+            'Add Option'
         )
     )
 );

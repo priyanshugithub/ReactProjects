@@ -4,9 +4,19 @@ console.log('App.js is running')
 var createApp = {
     title: 'Indecision App',
     subtitle: '',
-    options : []
+    options : ['one', 'two']
 };
 
+const onFormSubmit = (e) => {
+    e.preventDefault();
+    const option = e.target.elements.option.value;
+
+    if(option){
+        createApp.options.push(option);
+        e.target.elements.option.value = '';
+    }
+
+};
 function prender(options) {
     if(options.length > 0){
     return "Here are your options"}
@@ -21,6 +31,10 @@ var template = (<div>
     <li>Item Two</li>
     <li>Item Three</li>
     </ol>
+    <form onSubmit={onFormSubmit}>
+    <input type="text" name="option" />
+    <button>Add Option</button>
+    </form>
     </div>
     );
 
