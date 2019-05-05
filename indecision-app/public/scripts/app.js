@@ -5,8 +5,15 @@ console.log('App.js is running');
 // JSX
 var createApp = {
     title: 'Indecision App',
-    subtitle: 'Something more'
+    subtitle: '',
+    options: []
 };
+
+function prender(options) {
+    if (options.length > 0) {
+        return "Here are your options";
+    }
+}
 var template = React.createElement(
     'div',
     null,
@@ -15,10 +22,15 @@ var template = React.createElement(
         null,
         createApp.title
     ),
-    React.createElement(
+    createApp.subtitle && React.createElement(
         'p',
         null,
         createApp.subtitle
+    ),
+    React.createElement(
+        'p',
+        null,
+        createApp.options.length > 0 ? 'Here are your options' : 'No options'
     ),
     React.createElement(
         'ol',
@@ -80,4 +92,4 @@ var templateTwo = React.createElement(
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(templateTwo, appRoot);
+ReactDOM.render(template, appRoot);
