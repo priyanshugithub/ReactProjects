@@ -53,43 +53,50 @@ var template = React.createElement(
     )
 );
 
-var user = {
-    userName: 'Priyanshu',
-    age: 23,
-    location: 'New Delhi'
+var count = 0;
+var addOne = function addOne() {
+    count++;
+    renderCounterApp();
 };
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location : ',
-            location
-        );
-    }
-}
 
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.userName.toUpperCase() ? user.userName : 'Anonymous' + '!'
-    ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
-        null,
-        'Age :',
-        user.age
-    ),
-    React.createElement(
-        'p',
-        null,
-        getLocation(user.location)
-    )
-);
+var minusOne = function minusOne() {
+    count--;
+    renderCounterApp();
+};
 
+var resetApp = function resetApp() {
+    count = 0;
+    renderCounterApp();
+};
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+var renderCounterApp = function renderCounterApp() {
+    var templateTwo = React.createElement(
+        'div',
+        null,
+        React.createElement(
+            'h1',
+            null,
+            'Count : ',
+            count
+        ),
+        React.createElement(
+            'button',
+            { onClick: addOne },
+            '+1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: minusOne },
+            '-1'
+        ),
+        React.createElement(
+            'button',
+            { onClick: resetApp },
+            'Reset'
+        )
+    );
+    ReactDOM.render(templateTwo, appRoot);
+};
+
+renderCounterApp();
