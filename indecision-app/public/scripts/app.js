@@ -4,8 +4,8 @@ console.log('App.js is running');
 
 // JSX
 var createApp = {
-    title: 'Fuckoff',
-    subtitle: 'Fuck me off'
+    title: 'Indecision App',
+    subtitle: 'Something more'
 };
 var template = React.createElement(
     'div',
@@ -48,22 +48,27 @@ var user = {
 };
 function getLocation(location) {
     if (location) {
-        return location;
-    } else {
-        return 'Unknown';
+        return React.createElement(
+            'p',
+            null,
+            'Location : ',
+            location
+        );
     }
 }
+
 var templateTwo = React.createElement(
     'div',
     null,
     React.createElement(
         'h1',
         null,
-        user.userName.toUpperCase() + '!'
+        user.userName.toUpperCase() ? user.userName : 'Anonymous' + '!'
     ),
-    React.createElement(
+    user.age && user.age >= 18 && React.createElement(
         'p',
         null,
+        'Age :',
         user.age
     ),
     React.createElement(

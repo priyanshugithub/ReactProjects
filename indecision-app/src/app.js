@@ -23,16 +23,18 @@ var user = {
 };
 function getLocation(location) {
     if (location){
-        return location;
-    } else {
-        return 'Unknown';
+        return <p>Location : {location}</p>;
     }
 }
-var templateTwo = (<div>
-    <h1>{user.userName.toUpperCase() + '!'}</h1>
-    <p>{user.age}</p>
+
+var templateTwo = 
+    (
+    <div>
+    <h1>{user.userName.toUpperCase() ? user.userName : 'Anonymous' + '!'}</h1>
+    {(user.age && user.age >= 18) && <p>Age :{user.age}</p>}
     <p>{getLocation(user.location)}</p>
-    </div>);
+    </div>
+    );
 
 var appRoot = document.getElementById('app');
 
