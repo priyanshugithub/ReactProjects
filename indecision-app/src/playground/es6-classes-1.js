@@ -11,11 +11,13 @@ class Person {
         return `Hi, I am ${this.name} and my age is ${this.age} !`;
     }
 } 
+class Student extends Person {
 
-const me = new Person('Priyanshu', 23);
+}
+const me = new Student('Priyanshu', 23);
 console.log(me.getGreetings());
 console.log(me.getDescription());
 
-const other = new Person();
+const other = new Student();
 console.log(other.getGreetings());
 console.log(other.getDescription());
