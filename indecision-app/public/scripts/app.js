@@ -37,17 +37,32 @@ var Person = function () {
 var Student = function (_Person) {
     _inherits(Student, _Person);
 
-    function Student() {
+    function Student(name, age, major) {
         _classCallCheck(this, Student);
 
-        return _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).apply(this, arguments));
+        var _this = _possibleConstructorReturn(this, (Student.__proto__ || Object.getPrototypeOf(Student)).call(this, name, age));
+
+        _this.major = major;
+        return _this;
     }
+
+    _createClass(Student, [{
+        key: 'hasMajor',
+        value: function hasMajor() {
+            return !!this.major;
+        }
+    }, {
+        key: 'getDescription',
+        value: function getDescription() {
+            return 'testing';
+        }
+    }]);
 
     return Student;
 }(Person);
 
-var me = new Student('Priyanshu', 23);
-console.log(me.getGreetings());
+var me = new Student('Priyanshu', 23, 'Computer Science');
+console.log(me.hasMajor());
 console.log(me.getDescription());
 
 var other = new Student();
