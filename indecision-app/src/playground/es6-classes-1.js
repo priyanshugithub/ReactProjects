@@ -27,9 +27,24 @@ class Student extends Person {
         return description;
     }
 }
-const me = new Student('Priyanshu', 23, 'Computer Science');
-console.log(me.hasMajor());
+
+class Traveler extends Person {
+    constructor(name, age, homelocation){
+        super(name, age);
+        this.homelocation = homelocation;
+    }
+    getGreetings(){
+        let greeting = super.getGreetings();
+        if(this.homelocation ){
+            greeting += `I am from ${this.homelocation}`;
+        }
+        return greeting;
+    }
+}
+const me = new Traveler('Priyanshu', 23, 'New Delhi');
+//console.log(me.hasMajor());
 console.log(me.getDescription());
+console.log(me.getGreetings());
 
 const other = new Student();
 console.log(other.getGreetings());
