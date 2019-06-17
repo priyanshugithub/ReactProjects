@@ -5,4 +5,4 @@ const App = () => {
     return <h1>Hi There!</h1>;
 }
 
-ReactDOM.render(<App />, document.getElementById('root'));
+ReactDOM.render(<App />, document.querySelector('#root'));
