@@ -19,8 +19,10 @@
 
 .winter {
     background-color: aliceblue;
+    color: blue;
 }
 
 .summer {
     background-color: orange;
+    color: red;
 }
