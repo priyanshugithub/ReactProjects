@@ -1,0 +1,8 @@
+const songReducer = () => {
+    return [
+        {},
+        {},
+        {},
+        {}
+    ];
+};
